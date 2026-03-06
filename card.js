@@ -71,53 +71,81 @@ const showModal = (issue)=>{
      
     <div>
 
-                <!-- /// -->
+               
                 <h2 class="text-xl font-bold mb-2">
-                    Fix broken image uploads
+                   ${issue.title}
                 </h2>
 
-                <!-- Status -->
+              
                 <div class="flex items-center gap-2 text-sm mb-4">
-                    <span class="bg-green-500 text-white px-3 py-1 rounded-full text-xs">
-                        Opened
-                    </span>
-                    <span class="text-gray-500">• Opened by Fahim Ahmed</span>
-                    <span class="text-gray-500">• 22/02/2026</span>
+                   <span class="text-white px-3 py-1 rounded-full text-xs 
+                         ${issue.status === "open" ? "bg-green-500" : "bg-gray-500"}">
+                        ${issue.status}
+                        </span>
+                    <span class="text-gray-500">. Opened by Fahim Ahmed</span>
+                    <span class="text-gray-500">. 22/02/2026</span>
                 </div>
 
-                <!-- Labels -->
-                <div class="flex gap-2 mb-4">
-                    <span class="badge badge-error badge-outline">
-                        <i class="fa-solid fa-bug"></i> BUG
-                    </span>
 
-                    <span class="badge badge-warning badge-outline">
-                        <i class="fa-regular fa-life-ring"></i> HELP WANTED
-                    </span>
-                </div>
+                
+          <div class="flex gap-2 mb-4">
+                     ${ issue.labels.includes("bug")? `<span class="badge badge-error badge-outline">
+                      <i class="fa-solid fa-bug"></i> BUG
+             </span>`
+          : ""
+      }
 
-                <!-- Description -->
-                <p class="text-gray-600 mb-6">
-                    The navigation menu doesn't collapse properly on mobile devices.
-                    Need to fix the responsive behavior.
+      ${
+        issue.labels.includes("help wanted")
+          ? `<span class="badge badge-warning badge-outline">
+               <i class="fa-regular fa-life-ring"></i> HELP WANTED
+             </span>`
+          : ""
+      }
+      ${
+        issue.labels.includes("good first issue")
+          ? `<span class="badge badge-warning badge-outline uppercase text-xs">
+               <i class="fa-regular fa-life-ring"></i>good first issue
+             </span>`
+          : ""
+      }
+      ${
+        issue.labels.includes("enhancement")
+          ? `<span class="badge badge-warning badge-outline uppercase">
+               <i class="fa-regular fa-star"></i>enhancement
+             </span>`
+          : ""
+      }
+      ${
+        issue.labels.includes("documentation")
+          ? `<span class="badge badge-warning badge-outline uppercase">
+               <i class="fa-regular fa-star"></i>documentation
+             </span>`
+          : ""
+      }
+       </div>
+
+             
+                <p class="text-gray-600 mb-6">${issue.description}
+                   
                 </p>
 
-                <!-- Info Section -->
+                
                 <div class="bg-gray-100 rounded-lg p-4 flex justify-between">
                     <div>
                         <p class="text-gray-500 text-sm">Assignee:</p>
-                        <p class="font-semibold">Fahim Ahmed</p>
+                        <p class="font-semibold">${issue.author}</p>
                     </div>
 
                     <div>
                         <p class="text-gray-500 text-sm">Priority:</p>
-                        <span class="badge badge-error">HIGH</span>
+                        <span class="badge rounded-full  ${issue.priority==='high'? "badge-error" : issue.priority==='low'? "badge-warning" : "badge-accent"}">  ${issue.priority.toUpperCase()}</span>
                     </div>
                 </div>
                   <div class="modal-action">
                 <form method="dialog">
                     <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn btn-info">Close</button>
+                    <button class="btn btn-primary">Close</button>
                 </form>
             </div>
      
@@ -160,7 +188,7 @@ document.getElementById("issus-count").innerText = card.length
 
     <div class="flex justify-between items-center">
 
-      <img src="./assets/Open-Status.png" alt="">
+      <img src="" alt="">
 
       <span class="badge uppercase rounded-full ${car.priority==='high'? "badge-error" : car.priority==='low'? "badge-warning" : "badge-accent"}  ">
         ${car.priority}
