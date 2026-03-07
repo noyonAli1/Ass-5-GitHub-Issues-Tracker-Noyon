@@ -47,7 +47,7 @@ const fetchSingleIssue = (id)=>{
   fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
     .then((res) => res.json())
     .then((data) =>{
-     showModal(data.data)
+     showModal(data.data) 
     })
   
 }
@@ -233,7 +233,7 @@ document.getElementById("issus-count").innerText = card.length;
       }
       ${
         car.labels.includes("good first issue")
-          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[10px]">
                <i class="fa-regular fa-life-ring"></i>good first issue
              </span>`
           : ""
@@ -283,7 +283,7 @@ allcards();
 
 ///search...button//////////////////////////////////////////////////////////////////
 document.getElementById("input-scarich").addEventListener("keydown",()=>{
-              console.log('addd');
+              // console.log('addd');
               
   const inputscarich = document.getElementById("input-scarich");
            const searchValue = inputscarich.value.trim().toLowerCase();
