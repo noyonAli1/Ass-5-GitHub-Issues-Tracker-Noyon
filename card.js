@@ -1,4 +1,4 @@
-
+///aer kaj holo..lodding ta ke anan
 const showSpinner =(status)=>{
   const spinnerDiv = document.getElementById("spinner-div")
   const allCardDiv = document.getElementById("all-card")
@@ -157,7 +157,7 @@ const showModal = (issue)=>{
 ////all card section...
 const cardsection = (card) => {
   showSpinner(false)
-document.getElementById("issus-count").innerText = card.length
+document.getElementById("issus-count").innerText = card.length;
   const allcard = document.getElementById("all-card");
 
   allcard.innerHTML = "";
@@ -188,7 +188,12 @@ document.getElementById("issus-count").innerText = card.length
 
     <div class="flex justify-between items-center">
 
-      <img src="" alt="">
+        <img src="${
+        car.priority === 'high' || car.priority === 'medium'
+        ? './assets/Open-Status.png'
+        : './assets/Closed-Status.png'
+        }" alt="">
+ 
 
       <span class="badge uppercase rounded-full ${car.priority==='high'? "badge-error" : car.priority==='low'? "badge-warning" : "badge-accent"}  ">
         ${car.priority}
@@ -247,8 +252,8 @@ document.getElementById("issus-count").innerText = card.length
       }
 
     </div>
-
-
+ 
+     
     <div class="text-xs text-gray-400 mt-3">
 
       <p>#${car.id} by ${car.author}</p>
@@ -270,3 +275,25 @@ document.getElementById("issus-count").innerText = card.length
 }
 
 allcards();
+
+
+
+
+///search...button//////////////////////////////////////////////////////////////////
+document.getElementById("btn-Scarch").addEventListener("click",()=>{
+ 
+  const inputscarich = document.getElementById("input-scarich");
+           const searchValue = inputscarich.value.trim().toLowerCase();
+          //  console.log(searchValue);
+          
+         fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+        .then((res) => res.json())
+        .then((data) => {
+              const searchResult = data.data;
+              // console.log(allWords);
+             
+              // console.log(filterwords);
+               cardsection(searchResult);  
+        }); 
+});
+//////////////////////////////////////////////////////////////////////////////////////////

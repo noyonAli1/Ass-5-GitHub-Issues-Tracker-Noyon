@@ -38,18 +38,21 @@
 
             <div class="flex-1 flex items-center gap-2">
                 <img src="./assets/github-logo.png" class="w-7">
-                <h1 class="text-lg font-semibold">GitHub Issues Tracker</h1>
+                <h1 class="hidden lg:block text-lg font-semibold"> GitHub Issues Tracker</h1>
             </div>
 
 
-            <div class="flex-none flex items-center gap-3">
+            <div class="flex-none flex items-center gap-2 md:gap-3">
 
                 <div class="form-control">
-                    <input type="text" placeholder="Search issues..."
-                        class="input input-bordered w-56 md:w-72 border-gray-400 " />
+                    <input id="input-scarich" type="text" placeholder="Search issues..."
+                        class="input input-bordered w-36 sm:w-44 md:w-56 lg:w-72 border-gray-400 text-sm md:text-base outline-none" />
                 </div>
 
-                <button class="btn text-white border-0 bg-[#4f46e5]"> + New Issue</button>
+                <button id="btn-Scarch"
+                    class="btn text-white border-0 bg-[#4f46e5] text-xs sm:text-sm md:text-base px-2 md:px-4">
+                    + New Issue
+                </button>
 
             </div>
 
@@ -93,15 +96,19 @@
 
         </section>
 
-        <!-- //........................ all button card dainamik.. -->
+        <!-- //.......lodding kaj korbe ................. all button card dainamik..-->
+
         <div id="spinner-div" class="flex justify-center items-center min-h-80 hidden">
             <span class="loading loading-bars loading-xl"></span>
         </div>
         <!-- //alll -->
-        <section id="all-card" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- <section id="all-card" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-        </section>
-
+        </section> -->
+          
+        <section id="all-card" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-2 md:px-6 lg:px-0">
+            
+       </section>
     </main>
     <!-- Open the modal using ID.showModal() method -->
     <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
