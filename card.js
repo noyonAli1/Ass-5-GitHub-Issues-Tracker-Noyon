@@ -226,7 +226,7 @@ document.getElementById("issus-count").innerText = card.length;
 
       ${
         car.labels.includes("help wanted")
-          ? `<span class="badge badge-warning badge-outline text-[13px]">
+          ? `<span class="badge badge-warning badge-outline text-[12px]">
                <i class="fa-regular fa-life-ring"></i> HELP WANTED
              </span>`
           : ""
@@ -240,14 +240,14 @@ document.getElementById("issus-count").innerText = card.length;
       }
       ${
         car.labels.includes("enhancement")
-          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[12px]">
                <i class="fa-regular fa-star"></i>enhancement
              </span>`
           : ""
       }
       ${
         car.labels.includes("documentation")
-          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[12px]">
                <i class="fa-regular fa-star"></i>documentation
              </span>`
           : ""
