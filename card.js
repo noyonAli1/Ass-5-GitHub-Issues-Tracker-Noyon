@@ -141,7 +141,7 @@ const showModal = (issue)=>{
 
                     <div>
                         <p class="text-gray-500 text-sm">Priority:</p>
-                        <span class="badge rounded-full  ${issue.priority==='high'? "badge-error" : issue.priority==='low'? "badge-warning" : "badge-accent"}">  ${issue.priority.toUpperCase()}</span>
+                        <span class="badge rounded-full  ${issue.priority==='high'? "bg-[#feecec] text-red-500" : issue.priority==='low'? "bg-[#9CA3AF] text-slate-200" : "bg-[#fff6d1] text-amber-500"}">  ${issue.priority.toUpperCase()}</span>
                     </div>
                 </div>
                   <div class="modal-action">
