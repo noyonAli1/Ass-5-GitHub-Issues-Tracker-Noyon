@@ -20,23 +20,23 @@ const allcards = () => {
 
 }
 ///////////....open button....//////////////////
-const fetchOpenCards = async()=>{
+const fetchOpenCards = ()=>{
   showSpinner(true)//lodding
    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) =>{
-      const openIssues = data.data.filter(singleData=> singleData.status==="open");
+      const openIssues = data.data.filter(singleData => singleData.status==="open");
       cardsection(openIssues)
     })
 
 }
 ////////////////....close button....////////////////
-const fetchCloseCards = async()=>{
+const fetchCloseCards =()=>{
  showSpinner(true)//lodding
    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) =>{
-      const closeIssues = data.data.filter(singleData=> singleData.status==="closed");
+      const closeIssues = data.data.filter(singleData => singleData.status==="closed");
       cardsection(closeIssues)
     })
 
@@ -84,7 +84,7 @@ const showModal = (issue)=>{
                          ${issue.status === "open" ? "bg-green-500" : "bg-gray-500"}">
                         ${issue.status}
                         </span>
-                    <span class="text-gray-500">. Opened by${issue.author} .</span>
+                    <span class="text-gray-500 lg:text-[15px] text-[12px]">. Opened by ${issue.author} .</span>
                     <span class="text-gray-500">${new Date(issue.createdAt).toLocaleDateString()}</span>
                 </div>
 
@@ -106,7 +106,7 @@ const showModal = (issue)=>{
       }
       ${
         issue.labels.includes("good first issue")
-          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
+          ? `<span class="badge badge-warning badge-outline uppercase lg:text-[13px] text-[10px]">
                <i class="fa-regular fa-life-ring"></i>good first issue
              </span>`
           : ""
@@ -184,7 +184,7 @@ document.getElementById("issus-count").innerText = card.length;
 ///........................
     divadd.innerHTML = `
 
-<div onclick="fetchSingleIssue(${car.id})" class="card bg-base-100 shadow border-t-4 ${car.status==="open"? "border-green-500": "border-violet-500"} ">
+<div onclick="fetchSingleIssue(${car.id})" class="card h-full bg-base-100 shadow border-t-4 ${car.status==="open"? "border-green-500": "border-violet-500"} ">
 
   <div class="card-body p-4">
 
@@ -197,7 +197,7 @@ document.getElementById("issus-count").innerText = card.length;
         }" alt="">
  
 
-      <span class="badge uppercase rounded-full ${car.priority==='high'? "badge-error" : car.priority==='low'? "badge-warning" : "badge-accent"}  ">
+      <span class="badge uppercase rounded-full ${car.priority==='high'? "bg-[#feecec] text-red-500" : car.priority==='low'? "bg-[#9CA3AF] text-slate-200" : "bg-[#fff6d1] text-amber-500"}  ">
         ${car.priority}
       </span>
 

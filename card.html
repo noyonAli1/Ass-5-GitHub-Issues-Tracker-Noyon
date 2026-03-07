@@ -31,7 +31,7 @@
 
 <body class="bg-[#F8FAFC]">
     <!-- navber ar kaj kora hobe  -->
-    <header>
+    <header class="sticky top-0 z-40">
         <!-- Navbar -->
         <div class="navbar bg-base-100 shadow px-4 lg:px-20">
 
@@ -51,7 +51,7 @@
                             <path d="m21 21-4.3-4.3"></path>
                         </g>
                     </svg>
-                    <input class=" md:w-[63px] lg:w-auto" id="input-scarich" type="search"
+                    <input class=" w-[140px] md:w-[180px] lg:w-auto" id="input-scarich" type="search"
                         placeholder="Search issues..." />
                 </label>
 
@@ -69,7 +69,7 @@
         <div class=" p-4  shadow-md flex gap-3 mb-6">
 
             <button id="all-button" onclick="allcards(); showFilterIssueBtn('all-button')"
-                class="  btn  px-8   ">All</button>
+                class="  btn  px-8 bg-[#422ad5] text-white ">All</button>
             <button id="open-button" onclick="fetchOpenCards(); showFilterIssueBtn('open-button')"
                 class="  btn  px-7">Open</button>
             <button id="close-button" onclick="fetchCloseCards(); showFilterIssueBtn('close-button')"
@@ -77,7 +77,7 @@
 
         </div>
         <!-- all card.. -->
-        <section class="bg-white p-4 shadow-md mb-6">
+        <section class="bg-white p-4 shadow-md mb-16">
 
             <div class="flex items-center justify-between w-full">
 
