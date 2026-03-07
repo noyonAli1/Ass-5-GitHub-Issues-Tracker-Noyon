@@ -13,34 +13,36 @@ const showSpinner =(status)=>{
 
 
 const allcards = () => {
-   showSpinner(true)
+   showSpinner(true)//lodding
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => cardsection(data.data))
 
 }
-
+///////////....open button....//////////////////
 const fetchOpenCards = async()=>{
-  showSpinner(true)
+  showSpinner(true)//lodding
    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) =>{
-      const openIssues = data.data.filter(singleData=> singleData.status==="open")
+      const openIssues = data.data.filter(singleData=> singleData.status==="open");
       cardsection(openIssues)
     })
 
 }
+////////////////....close button....////////////////
 const fetchCloseCards = async()=>{
- showSpinner(true)
+ showSpinner(true)//lodding
    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) =>{
-      const closeIssues = data.data.filter(singleData=> singleData.status==="closed")
+      const closeIssues = data.data.filter(singleData=> singleData.status==="closed");
       cardsection(closeIssues)
     })
 
 }
-//modal.......................................................
+////////////////////////////////////////////////////////////////////////
+//modal...........................moddel card..........................
 const fetchSingleIssue = (id)=>{
   fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
     .then((res) => res.json())
@@ -64,7 +66,7 @@ const fetchSingleIssue = (id)=>{
 //   createdAt: "2024-01-15T10:30:00Z",
 //   updatedAt: "2024-01-15T10:30:00Z"
 const showModal = (issue)=>{
-  my_modal_1.showModal()
+  my_modal_1.showModal()//modal
   const modalcontent =  document.getElementById("modal-content");
   const addDiv = document.createElement("div");
      modalcontent.innerHTML = `
@@ -82,7 +84,7 @@ const showModal = (issue)=>{
                          ${issue.status === "open" ? "bg-green-500" : "bg-gray-500"}">
                         ${issue.status}
                         </span>
-                    <span class="text-gray-500">. Opened by ${issue.author}</span>
+                    <span class="text-gray-500">. Opened by${issue.author} .</span>
                     <span class="text-gray-500">${new Date(issue.createdAt).toLocaleDateString()}</span>
                 </div>
 
@@ -153,7 +155,7 @@ const showModal = (issue)=>{
      `;
     modalcontent.append(addDiv)  ;
 }
-//..................................................
+//..///////////////////////////////////////////////////
 ////all card section...
 const cardsection = (card) => {
   showSpinner(false)
@@ -254,7 +256,7 @@ document.getElementById("issus-count").innerText = card.length;
     </div>
  
      
-    <div class="text-xs text-gray-400 mt-3">
+    <div class="text-xs text-gray-400 mt-3  border-t border-gray-200 mt-3 pt-3  ">
 
       <p>#${car.id} by ${car.author}</p>
 
@@ -272,7 +274,7 @@ document.getElementById("issus-count").innerText = card.length;
 
   });
 
-}
+};
 
 allcards();
 
@@ -297,4 +299,32 @@ document.getElementById("input-scarich").addEventListener("keydown",()=>{
                cardsection(searchResult);  
         }); 
 });
-//////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+ //<!-- card + all button section kaj kora hobe -->
+const allbtn = document.getElementById("all-button");
+const openbtn = document.getElementById("open-button");
+const closebtn = document.getElementById("close-button");
+
+
+// all filter btn toggle
+function showFilterIssueBtn(id) {
+
+    allbtn.classList.remove("bg-[#422ad5]", "text-white");
+    openbtn.classList.remove("bg-[#422ad5]", "text-white");
+    closebtn.classList.remove("bg-[#422ad5]", "text-white");
+
+    let btn = document.getElementById(id);
+    btn.classList.add("bg-[#422ad5]", "text-white");
+
+}
+
+
+////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+

@@ -33,7 +33,7 @@
     <!-- navber ar kaj kora hobe  -->
     <header>
         <!-- Navbar -->
-        <div class="navbar bg-base-100 shadow px-6">
+        <div class="navbar bg-base-100 shadow px-4 lg:px-20">
 
 
             <div class="flex-1 flex items-center gap-2">
@@ -43,11 +43,17 @@
 
 
             <div class="flex-none flex items-center gap-2 md:gap-3">
-
-                <div class="form-control">
-                    <input id="input-scarich" type="text" placeholder="Search issues..."
-                        class="input input-bordered w-36 sm:w-44 md:w-56 lg:w-72 border-gray-400 text-sm md:text-base outline-none" />
-                </div>
+                <label class="input outline-none">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                            stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input class=" md:w-[63px] lg:w-auto" id="input-scarich" type="search"
+                        placeholder="Search issues..." />
+                </label>
 
                 <button id="btn-Scarch"
                     class="btn text-white border-0 bg-[#4f46e5] text-xs sm:text-sm md:text-base px-2 md:px-4">
@@ -60,12 +66,14 @@
     </header>
     <!-- card + all button section kaj kora hobe -->
     <main class="container mx-auto mt-15">
-        <div class="bg-white p-4  shadow-md flex gap-3 mb-6">
+        <div class=" p-4  shadow-md flex gap-3 mb-6">
 
-            <button onclick="allcards()"
-                class="btn btn-outline px-8 border-gray-400 bg-green-600 text-white">All</button>
-            <button onclick="fetchOpenCards()" class="btn btn-outline px-7 border-gray-400">Open</button>
-            <button onclick="fetchCloseCards()" class="btn btn-outline px-7 border-gray-400">Closed</button>
+            <button id="all-button" onclick="allcards(); showFilterIssueBtn('all-button')"
+                class="  btn  px-8   ">All</button>
+            <button id="open-button" onclick="fetchOpenCards(); showFilterIssueBtn('open-button')"
+                class="  btn  px-7">Open</button>
+            <button id="close-button" onclick="fetchCloseCards(); showFilterIssueBtn('close-button')"
+                class="  btn  px-7 ">Closed</button>
 
         </div>
         <!-- all card.. -->
@@ -98,30 +106,22 @@
 
         <!-- //.......lodding kaj korbe ................. all button card dainamik..-->
 
-        <div id="spinner-div" class="flex justify-center items-center min-h-80 hidden">
+        <div id="spinner-div" class="flex justify-center items-center min-h-60 hidden">
             <span class="loading loading-bars loading-xl"></span>
         </div>
-        <!-- //alll -->
-        <!-- <section id="all-card" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-        </section> -->
-          
-        <section id="all-card" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-2 md:px-6 lg:px-0">
-            
-       </section>
+        <!-- //alll -->
+        <section id="all-card" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2 md:px-6 lg:px-0">
+
+        </section>
     </main>
-    <!-- Open the modal using ID.showModal() method -->
-    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+
+    <!-- Open the modal using ID.showModal() method///  all model-->
     <dialog id="my_modal_1" class="modal">
         <div class="modal-box">
             <div id="modal-content">
 
             </div>
-
-
-            <!-- /// -->
-        </div>
-
         </div>
     </dialog>
 
