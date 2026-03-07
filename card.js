@@ -233,7 +233,7 @@ document.getElementById("issus-count").innerText = card.length;
       }
       ${
         car.labels.includes("good first issue")
-          ? `<span class="badge badge-warning badge-outline uppercase text-[10px]">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[12px]">
                <i class="fa-regular fa-life-ring"></i>good first issue
              </span>`
           : ""
