@@ -218,7 +218,7 @@ document.getElementById("issus-count").innerText = card.length;
 
       ${
         car.labels.includes("bug")
-          ? `<span class="badge badge-error badge-outline">
+          ? `<span class="badge badge-error badge-outline text-[12px]">
                <i class="fa-solid fa-bug"></i> BUG
              </span>`
           : ""
