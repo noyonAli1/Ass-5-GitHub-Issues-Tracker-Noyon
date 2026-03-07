@@ -82,8 +82,8 @@ const showModal = (issue)=>{
                          ${issue.status === "open" ? "bg-green-500" : "bg-gray-500"}">
                         ${issue.status}
                         </span>
-                    <span class="text-gray-500">. Opened by Fahim Ahmed</span>
-                    <span class="text-gray-500">. 22/02/2026</span>
+                    <span class="text-gray-500">. Opened by ${issue.author}</span>
+                    <span class="text-gray-500">${new Date(issue.createdAt).toLocaleDateString()}</span>
                 </div>
 
 
@@ -104,21 +104,21 @@ const showModal = (issue)=>{
       }
       ${
         issue.labels.includes("good first issue")
-          ? `<span class="badge badge-warning badge-outline uppercase text-xs">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
                <i class="fa-regular fa-life-ring"></i>good first issue
              </span>`
           : ""
       }
       ${
         issue.labels.includes("enhancement")
-          ? `<span class="badge badge-warning badge-outline uppercase">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
                <i class="fa-regular fa-star"></i>enhancement
              </span>`
           : ""
       }
       ${
         issue.labels.includes("documentation")
-          ? `<span class="badge badge-warning badge-outline uppercase">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
                <i class="fa-regular fa-star"></i>documentation
              </span>`
           : ""
@@ -191,7 +191,7 @@ document.getElementById("issus-count").innerText = card.length;
         <img src="${
         car.priority === 'high' || car.priority === 'medium'
         ? './assets/Open-Status.png'
-        : './assets/Closed-Status.png'
+        : './assets/Close.png'
         }" alt="">
  
 
@@ -224,28 +224,28 @@ document.getElementById("issus-count").innerText = card.length;
 
       ${
         car.labels.includes("help wanted")
-          ? `<span class="badge badge-warning badge-outline">
+          ? `<span class="badge badge-warning badge-outline text-[13px]">
                <i class="fa-regular fa-life-ring"></i> HELP WANTED
              </span>`
           : ""
       }
       ${
         car.labels.includes("good first issue")
-          ? `<span class="badge badge-warning badge-outline uppercase text-xs">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
                <i class="fa-regular fa-life-ring"></i>good first issue
              </span>`
           : ""
       }
       ${
         car.labels.includes("enhancement")
-          ? `<span class="badge badge-warning badge-outline uppercase">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
                <i class="fa-regular fa-star"></i>enhancement
              </span>`
           : ""
       }
       ${
         car.labels.includes("documentation")
-          ? `<span class="badge badge-warning badge-outline uppercase">
+          ? `<span class="badge badge-warning badge-outline uppercase text-[13px]">
                <i class="fa-regular fa-star"></i>documentation
              </span>`
           : ""
@@ -280,8 +280,9 @@ allcards();
 
 
 ///search...button//////////////////////////////////////////////////////////////////
-document.getElementById("btn-Scarch").addEventListener("click",()=>{
- 
+document.getElementById("input-scarich").addEventListener("keydown",()=>{
+              console.log('addd');
+              
   const inputscarich = document.getElementById("input-scarich");
            const searchValue = inputscarich.value.trim().toLowerCase();
           //  console.log(searchValue);
