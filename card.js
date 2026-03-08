@@ -139,14 +139,14 @@ const showModal = (issue)=>{
                         <p class="font-semibold">${issue.author}</p>
                     </div>
 
-                    <div>
+                    <div class=">
                         <p class="text-gray-500 text-sm">Priority:</p>
                         <span class="badge rounded-full  ${issue.priority==='high'? "bg-[#feecec] text-red-500" : issue.priority==='low'? "bg-[#9CA3AF] text-slate-200" : "bg-[#fff6d1] text-amber-500"}">  ${issue.priority.toUpperCase()}</span>
                     </div>
                 </div>
                   <div class="modal-action">
                 <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
+                   
                     <button class="btn btn-primary">Close</button>
                 </form>
             </div>
@@ -284,11 +284,11 @@ allcards();
 ///search...button//////////////////////////////////////////////////////////////////
 document.getElementById("input-scarich").addEventListener("keydown",()=>{
               // console.log('addd');
-              
+      //  if(add.key === "Enter"){       
   const inputscarich = document.getElementById("input-scarich");
            const searchValue = inputscarich.value.trim().toLowerCase();
           //  console.log(searchValue);
-          
+                   
          fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
         .then((res) => res.json())
         .then((data) => {
@@ -297,6 +297,7 @@ document.getElementById("input-scarich").addEventListener("keydown",()=>{
              
               // console.log(filterwords);
                cardsection(searchResult);  
+                // inputscarich.value = "";
         }); 
 });
 ////////////////////////////////////////////////////////////////////////////
