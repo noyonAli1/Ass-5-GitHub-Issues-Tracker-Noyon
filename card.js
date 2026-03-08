@@ -256,7 +256,7 @@ document.getElementById("issus-count").innerText = card.length;
     </div>
  
      
-    <div class="text-xs text-gray-400 mt-3  border-t border-gray-200 mt-3 pt-3  ">
+    <div class="text-xs text-gray-400   border-t border-gray-200 mt-3 pt-3  ">
 
       <p>#${car.id} by ${car.author}</p>
 
