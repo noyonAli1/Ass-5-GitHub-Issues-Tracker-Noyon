@@ -18,4 +18,4 @@ The `forEach()` method is used to loop through each element of an array and perf
 =>An arrow function is a shorter syntax for writing functions in JavaScript. It uses the => symbol and makes the code more concise and easier to read compared to regular functions
 
 5--What are template literals?
-=>Template literals are a feature in JavaScript used to create strings using backticks (`). They allow embedding variables and expressions inside strings and make it easier to write multi-line text.
+=>Template literals are a feature in JavaScript used to create strings using backticks (`). They allow embedding variables and expressions inside strings and make it easier to write multi-line text............

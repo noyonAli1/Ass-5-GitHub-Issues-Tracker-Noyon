@@ -18,7 +18,7 @@ loginbtn.addEventListener('click',function (){
           //ture holo aber onno page noye jabe
           window.location.assign("./card.html");
  }else{
-       //3-2 jodi folse hoy ...alert >> return
+       
        alert("login Failed");
        return;
  }
